@@ -1,0 +1,17 @@
+<project>
+    <!-- For JSAT libary -->
+    <repositories>
+      <repository>
+        <id>edwardraff-repo</id>
+        <url>http://www.edwardraff.com/maven-repo/</url>
+      </repository>
+    </repositories>
+
+    <dependencies>
+      <dependency>
+        <groupId>com.edwardraff</groupId>
+        <artifactId>JSAT</artifactId>
+        <version>0.0.2</version>
+      </dependency>
+    </dependencies>
+</project>
