@@ -48,8 +48,8 @@ public class Main  {
     public static void main(String[] args) {
         System.out.println("Starting program...");
         
-        //trainClassifier();
-        
+//        trainClassifier();
+        Subtitle s = new Subtitle("subtitles/action/dollars.stripped", "Action");
         System.out.println("Program done...");
         
     }
