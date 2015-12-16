@@ -2,53 +2,44 @@
 package movieclassifier;
 
 import java.io.File;
-import jsat.ARFFLoader;
-import jsat.DataSet;
-import jsat.classifiers.CategoricalResults;
-import jsat.classifiers.ClassificationDataSet;
-import jsat.classifiers.Classifier;
-import jsat.classifiers.DataPoint;
-import jsat.classifiers.bayesian.NaiveBayes;
+import jsat.classifiers.*;
+import jsat.classifiers.bayesian.NaiveBayesUpdateable;
+import jsat.text.tokenizer.NaiveTokenizer;
+import jsat.text.wordweighting.TfIdf;
 
 /**
  * Hello world!
  */
 public class Main  {
-    /* From https://github.com/EdwardRaff/JSAT/wiki/Training-and-using-a-classifier */
+    /* From https://github.com/EdwardRaff/JSAT/wiki/Loading-text-data-and-Spam-Classification*/
     private static void trainClassifier() {
-        String nominalPath = "uci" + File.separator + "nominal" + File.separator;
-        File file = new File(nominalPath + "iris.arff");
-        DataSet dataSet = ARFFLoader.loadArffFile(file);
+        /* Load training data(subtitle files) */
+        File subtitleFile = new File("../../../../subtitles/action/Braveheart (1995) [ENG] [DVDrip] CD1.stripped");
+        SubtitleLoader loader = new SubtitleLoader(subtitleFile, new NaiveTokenizer(), new TfIdf());
+        ClassificationDataSet cds = loader.getDataSet();
 
-        //We specify '0' as the class we would like to make the target class. 
-        ClassificationDataSet cDataSet = new ClassificationDataSet(dataSet, 0);
+        /* Print status */
+        System.out.println("Data set loaded in");
+        System.out.println(cds.getSampleSize() + " data points");
+        System.out.println(cds.getNumNumericalVars() + " features");
 
-        int errors = 0;
-        Classifier classifier = new NaiveBayes();
-        classifier.trainC(cDataSet);
+        /* Classifying stuff */
+        Classifier classifier = new NaiveBayesUpdateable(true);
 
-        for(int i = 0; i < dataSet.getSampleSize(); i++)
-        {
-            DataPoint dataPoint = cDataSet.getDataPoint(i);//It is important not to mix these up, the class has been removed from data points in 'cDataSet' 
-            int truth = cDataSet.getDataPointCategory(i);//We can grab the true category from the data set
+        ClassificationModelEvaluation cme = new ClassificationModelEvaluation(classifier, cds);
+        cme.evaluateCrossValidation(10);
 
-            //Categorical Results contains the probability estimates for each possible target class value. 
-            //Classifiers that do not support probability estimates will mark its prediction with total confidence. 
-            CategoricalResults predictionResults = classifier.classify(dataPoint);
-            int predicted = predictionResults.mostLikely();
-            if(predicted != truth)
-                errors++;
-            System.out.println( i + "| True Class: " + truth + ", Predicted: " + predicted + ", Confidence: " + predictionResults.getProb(predicted) );
-        }
-
-        System.out.println(errors + " errors were made, " + 100.0*errors/dataSet.getSampleSize() + "% error rate" );
+        System.out.println("Total Training Time: " + cme.getTotalTrainingTime());
+        System.out.println("Total Classification Time: " + cme.getTotalClassificationTime());
+        System.out.println("Total Error rate: " + cme.getErrorRate());
+        cme.prettyPrintConfusionMatrix();
     }
     
     /* */
     public static void main(String[] args) {
         System.out.println("Starting program...");
         
-//        trainClassifier();
+        //trainClassifier();
         Subtitle s = new Subtitle("subtitles/action/dollars.stripped", "Action");
         System.out.println("Program done...");
         
