@@ -3,8 +3,9 @@ Movie Classifier using subtitles
 ~~Uses the JSAT libary availble at: https://github.com/EdwardRaff/JSAT~~ Not anymore
 
 To use Mallet:
-
-http://mallet.cs.umass.edu/classification.php
+  http://mallet.cs.umass.edu/classification.php
+Mallet repo:
+  https://github.com/mimno/Mallet
 
 Copmile mallet by running ant
 
