@@ -1,0 +1,9 @@
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/Aloha.2015.1080p.BluRay.H264.AAC-RARBG.CHI.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/Forrest%20Gump%20(1994).en.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/Groundhog%20Day%20(1993).eng.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/Her.2013.BluRay.x264-YIFY.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/Love.Actually.2003.720p.BluRay.H264.AAC-RARBG-eng.stripped	action	2.1280578769506874E-24	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/The%20Holiday_IW.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/The%20Notebook%20(2004)%20%5BENG%5D%20%5BDVDrip%5D.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/The%20Princess%20Bride%20(1987).eng.stripped	action	0.0	romance	1.0
+file:/C:/Users/William/Documents/git_repos/movie-classification/subtitles/genres/romance/Titanic%20(1997)%20BluRay.stripped	action	0.0	romance	1.0
