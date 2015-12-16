@@ -6,6 +6,8 @@ To use Mallet:
   http://mallet.cs.umass.edu/classification.php
 Mallet repo:
   https://github.com/mimno/Mallet
+Good mallet exampels:
+    http://www.cs.cmu.edu/afs/cs.cmu.edu/project/cmt-40/OldFiles/Nice/Urdu-MT/code/Tools/POS/postagger/mallet_0.4/doc/command-line-classification.html
 
 Copmile mallet by running ant
 
